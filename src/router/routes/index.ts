@@ -81,7 +81,7 @@ export const basicRoutes: RoutesType = [
       },
       {
         name: 'LinkGiteeSrc',
-        path: 'https://gitee.com/zclzone/qs-admin',
+        path: 'https://gitee.com/zclzone/qs-admin-ts',
         component: () => {},
         meta: {
           title: '源码 - gitee',
