@@ -40,13 +40,13 @@ const userStore = useUserStore()
               </template>
             </n-statistic>
             <n-statistic label="Stars" w-80 ml-20>
-              <a href="https://github.com/zclzone/vue-naive-admin">
-                <img allt="stars" src="https://badgen.net/github/stars/zclzone/vue-naive-admin">
+              <a href="https://github.com/zclzone/qs-admin">
+                <img allt="stars" src="https://badgen.net/github/stars/zclzone/qs-admin">
               </a>
             </n-statistic>
             <n-statistic label="Forks" w-80 ml-20>
-              <a href="https://github.com/zclzone/vue-naive-admin">
-                <img allt="forks" src="https://badgen.net/github/forks/zclzone/vue-naive-admin">
+              <a href="https://github.com/zclzone/qs-admin">
+                <img allt="forks" src="https://badgen.net/github/forks/zclzone/qs-admin">
               </a>
             </n-statistic>
           </div>
