@@ -15,6 +15,12 @@
   <a href="https://github.com/zclzone/qs-admin/blob/main/README.zh-CN.md">简体中文</a>
 </p>
 
+### [JS 版本](https://github.com/zclzone/vue-naive-admin)
+
+preview:
+- [https://template.qszone.com](https://template.qszone.com)
+- [https://zclzone.github.io/vue-naive-admin](https://zclzone.github.io/vue-naive-admin)
+
 
 ### Introduction
 

@@ -15,6 +15,12 @@
   <a href="https://github.com/zclzone/qs-admin">English</a>
 </p>
 
+### [JS 版本](https://github.com/zclzone/vue-naive-admin)
+
+预览:
+- [https://template.qszone.com](https://template.qszone.com)
+- [https://zclzone.github.io/vue-naive-admin](https://zclzone.github.io/vue-naive-admin)
+
 ### 简介
 
 [Qs Admin](https://github.com/zclzone/qs-admin) 是一个 **完全开源免费且允许商用** 的后台管理模板，基于 `Vue3、Vite3、TypeScript、Pinia、Unocss 和 Naive UI` 等前端最新技术栈。相较于其他比较流行的后台管理模板，此项目更加简洁、轻量，风格清新，学习成本非常低，非常适合中小型项目或者个人项目。
