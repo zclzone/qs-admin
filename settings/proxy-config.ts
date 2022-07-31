@@ -5,7 +5,7 @@ const proxyConfigMappings: Record<ProxyType, ProxyConfig> = {
   },
   test: {
     prefix: '/api',
-    target: 'https://qszone.com/api',
+    target: 'http://localhost:8080',
   },
   prod: {
     prefix: '/api',
