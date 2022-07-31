@@ -12,7 +12,7 @@
 
 <p align='center'>
   <b>简体中文</b> | 
-  <a href="https://github.com/zclzone/qs-admin/blob/main/README.md">English</a>
+  <a href="https://github.com/zclzone/qs-admin">English</a>
 </p>
 
 ### 简介
