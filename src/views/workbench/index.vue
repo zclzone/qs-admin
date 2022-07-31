@@ -6,7 +6,7 @@ const userStore = useUserStore()
 </script>
 
 <template>
-  <div>
+  <div min-w-380>
     <n-watermark
       :content="userStore.name"
       cross
