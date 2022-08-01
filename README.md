@@ -15,13 +15,6 @@
   <a href="https://github.com/zclzone/qs-admin/blob/main/README.zh-CN.md">简体中文</a>
 </p>
 
-### [JS 版本](https://github.com/zclzone/vue-naive-admin)
-
-preview:
-- [https://template.qszone.com](https://template.qszone.com)
-- [https://zclzone.github.io/vue-naive-admin](https://zclzone.github.io/vue-naive-admin)
-
-
 ### Introduction
 
 [Qs Admin](https://github.com/zclzone/qs-admin) is a **completely open source free and commercially allowed ** admin template，Based on the latest technology stack of front-end such as `Vue3、Vite3、TypeScript、Pinia、Unocss and Naive UI`. Compared with other more popular backend management templates, this project is more concise, lightweight, fresh style, very low learning costs, ideal for small and medium-sized projects or personal projects.
@@ -93,5 +86,18 @@ pnpm preview
 # Commit（husky+commitlint）
 pnpm cz
 ```
+
+### 
+### JS Version: Vue Naive Admin
+
+#### source code
+
+- gitub: [https://github.com/zclzone/vue-naive-admin](https://github.com/zclzone/vue-naive-admin)
+- gitee: [https://gitee.com/zclzone/vue-naive-admin](https://gitee.com/zclzone/vue-naive-admin)
+
+#### preview
+
+- [https://template.qszone.com](https://template.qszone.com)
+- [https://zclzone.github.io/vue-naive-admin](https://zclzone.github.io/vue-naive-admin)
 
 
