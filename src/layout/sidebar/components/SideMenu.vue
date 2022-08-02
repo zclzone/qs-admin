@@ -11,7 +11,7 @@ const appStore = useAppStore()
 const { currentRoute } = router
 
 const menuOptions = computed(() => {
-  return permissionStore.menus.map(item => getMenuItem(item)).sort((a, b) => a.index - b.index)
+  return permissionStore.menus.map(item => getMenuItem(item)).sort((a, b) => a.order - b.order)
 })
 
 function resolvePath(basePath: string, path: string) {
@@ -31,7 +31,7 @@ interface MennuItem {
   key: string
   path: string
   icon: (() => import('vue').VNodeChild) | null
-  index: number
+  order: number
   children?: Array<MennuItem>
 }
 
@@ -41,7 +41,7 @@ function getMenuItem(route: RouteType, basePath = ''): MennuItem {
     key: route.name,
     path: resolvePath(basePath, route.path),
     icon: getIcon(route.meta),
-    index: route.meta?.index || 0,
+    order: route.meta?.order || 0,
   }
 
   const visibleChildren = route.children ? route.children.filter((item: RouteType) => item.name && !item.isHidden) : []
@@ -57,19 +57,19 @@ function getMenuItem(route: RouteType, basePath = ''): MennuItem {
       key: singleRoute.name,
       path: resolvePath(menuItem.path, singleRoute.path),
       icon: getIcon(singleRoute.meta),
-      index: menuItem.index,
+      order: menuItem.order,
     }
     const visibleItems = singleRoute.children ? singleRoute.children.filter((item: RouteType) => item.name && !item.isHidden) : []
 
     if (visibleItems.length === 1)
       menuItem = getMenuItem(visibleItems[0], menuItem.path)
     else if (visibleItems.length > 1)
-      menuItem.children = visibleItems.map(item => getMenuItem(item, menuItem.path)).sort((a, b) => a.index - b.index)
+      menuItem.children = visibleItems.map(item => getMenuItem(item, menuItem.path)).sort((a, b) => a.order - b.order)
   }
   else {
     menuItem.children = visibleChildren
       .map(item => getMenuItem(item, menuItem.path))
-      .sort((a, b) => a.index - b.index)
+      .sort((a, b) => a.order - b.order)
   }
 
   return menuItem

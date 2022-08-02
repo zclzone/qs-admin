@@ -44,7 +44,7 @@ export const basicRoutes: RoutesType = [
     redirect: '/error-page/404',
     meta: {
       title: 'ErrorPage',
-      index: 99,
+      order: 99,
       icon: 'mdi:alert-circle-outline',
     },
     children: [
@@ -67,7 +67,7 @@ export const basicRoutes: RoutesType = [
     meta: {
       title: '外部链接',
       icon: 'mdi:link-variant',
-      index: 3,
+      order: 3,
     },
     children: [
       {

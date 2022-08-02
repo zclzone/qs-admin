@@ -4,7 +4,7 @@ interface Meta {
   title?: string
   icon?: string
   customIcon?: string
-  index?: number
+  order?: number
   role?: Array<string>
 }
 
