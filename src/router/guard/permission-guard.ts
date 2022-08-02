@@ -26,7 +26,7 @@ export function createPermissionGuard(router: Router) {
       return { path: '/', replace: true }
 
     // 已经拿到用户信息
-    if (userStore.userId) {
+    if (!isNullOrWhitespace(userStore.userId)) {
       refreshAccessToken()
       return true
     }
