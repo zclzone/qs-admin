@@ -6,6 +6,7 @@ interface Meta {
   customIcon?: string
   order?: number
   role?: Array<string>
+  requireAuth?: boolean
 }
 
 interface RouteItem {
@@ -20,3 +21,6 @@ interface RouteItem {
 type RouteType = RouteRecordRaw & RouteItem
 
 type RoutesType = Array<RouteType>
+
+/** 前端导入的路由模块 */
+type RouteModule = Record<string, { default: RouteType }>

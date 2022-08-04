@@ -1,4 +1,4 @@
-import type { RouteType, RoutesType } from '~/types/router'
+import type { RouteModule, RouteType, RoutesType } from '~/types/router'
 const Layout = () => import('@/layout/index.vue')
 
 export const basicRoutes: RoutesType = [
@@ -99,4 +99,10 @@ export const NOT_FOUND_ROUTE: RouteType = {
   isHidden: true,
 }
 
-export { asyncRoutes } from './async-routes'
+const modules = import.meta.glob('@/views/**/route.ts', { eager: true }) as RouteModule
+const asyncRoutes: RoutesType = []
+Object.keys(modules).forEach((key) => {
+  asyncRoutes.push(modules[key].default)
+})
+
+export { asyncRoutes }
