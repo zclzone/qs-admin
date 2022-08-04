@@ -1,12 +1,12 @@
 import type { App } from 'vue'
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 import { setupRouterGuard } from './guard'
-import { basicRoutes } from './routes'
+import { basicRoutes as routes } from './routes'
 
 const isHash = import.meta.env.VITE_USE_HASH === 'true'
 export const router = createRouter({
   history: isHash ? createWebHashHistory('/') : createWebHistory('/'),
-  routes: [],
+  routes,
   scrollBehavior: () => ({ left: 0, top: 0 }),
 })
 
@@ -15,15 +15,12 @@ export function resetRouter() {
     const { name } = route
     router.hasRoute(name!) && router.removeRoute(name!)
   })
-  basicRoutes.forEach((route) => {
+  routes.forEach((route) => {
     !router.hasRoute(route.name) && router.addRoute(route)
   })
 }
 
 export function setupRouter(app: App) {
-  basicRoutes.forEach((route) => {
-    !router.hasRoute(route.name) && router.addRoute(route)
-  })
   app.use(router)
   setupRouterGuard(router)
 }
