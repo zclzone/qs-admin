@@ -1,6 +1,6 @@
 type ProxyType = 'dev' | 'test' | 'prod';
 
-interface VIteEnv {
+interface ViteEnv {
   VITE_PORT: number
   VITE_USE_MOCK?: boolean
   VITE_USE_PROXY?: boolean
@@ -9,6 +9,8 @@ interface VIteEnv {
   VITE_PUBLIC_PATH: string
   VITE_BASE_API: string
   VITE_PROXY_TYPE?: ProxyType
+  VITE_USE_COMPRESS?: boolean
+  VITE_COMPRESS_TYPE?: 'gzip' | 'brotliCompress' | 'deflate' | 'deflateRaw'
 }
 
 interface ProxyConfig {

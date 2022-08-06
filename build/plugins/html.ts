@@ -1,6 +1,6 @@
 import { createHtmlPlugin } from 'vite-plugin-html'
 
-export function setupHtmlPlugin(viteEnv: VIteEnv) {
+export function setupHtmlPlugin(viteEnv: ViteEnv) {
   const { VITE_APP_TITLE } = viteEnv
 
   const htmlPlugin = createHtmlPlugin({
