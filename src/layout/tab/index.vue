@@ -59,7 +59,7 @@ async function handleContextMenu(e: MouseEvent, tabItem: TabItem) {
 </script>
 
 <template>
-  <ScrollX bg-white dark:bg-dark :style="{ height: `${useTheme.tab.height ?? 50}px` }">
+  <ScrollX bg-white dark:bg-dark :style="{ height: `${useTheme.tab.height}px` }">
     <n-tag
       v-for="tab in tabStore.tabs"
       :key="tab.path"

@@ -1,5 +1,11 @@
 {
+  "isMobile": false,
   "darkMode": false,
+  "sider": {
+    "width": 220,
+    "collapsedWidth": 64,
+    "collapsed": false
+  },
   "tab": {
     "visible": true,
     "height": 50

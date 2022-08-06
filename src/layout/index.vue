@@ -4,29 +4,40 @@ import AppHeader from './header/index.vue'
 import AppTab from './tab/index.vue'
 import AppMain from './AppMain.vue'
 
-import { useAppStore, useThemeStore } from '@/store'
+import { useThemeStore } from '@/store'
 
-const appStore = useAppStore()
-const useTheme = useThemeStore()
+const themeStore = useThemeStore()
 </script>
 
 <template>
   <n-layout has-sider wh-full>
     <n-layout-sider
+      v-if="!themeStore.isMobile"
       bordered
       collapse-mode="width"
-      :collapsed-width="64"
-      :width="220"
+      :collapsed-width="themeStore.sider.collapsedWidth"
+      :width="themeStore.sider.width"
       :native-scrollbar="false"
-      :collapsed="appStore.collapsed"
+      :collapsed="themeStore.sider.collapsed"
     >
       <SideBar />
     </n-layout-sider>
+    <n-drawer
+      v-else
+      :width="themeStore.sider.width"
+      :auto-focus="false"
+      :show="!themeStore.sider.collapsed"
+      placement="left"
+      display-directive="show"
+      @mask-click="themeStore.setCollapsed(true)"
+    >
+      <SideBar />
+    </n-drawer>
 
     <article flex-1 flex-col overflow-auto>
       <header
         bg-white px-15 border-b bc-eee flex items-center dark="bg-dark border-0"
-        :style="`height: ${useTheme.header.height ?? 60}px`"
+        :style="`height: ${themeStore.header.height}px`"
       >
         <AppHeader />
       </header>

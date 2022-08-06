@@ -1,3 +1,12 @@
+/** 侧边栏 */
+interface Sider {
+  width: number
+  /** 折叠时的宽度 */
+  collapsedWidth: number
+  /** 是否折叠 */
+  collapsed: boolean
+}
+
 /** 头部样式 */
 interface Header {
   /** 是否显示 */
@@ -5,6 +14,8 @@ interface Header {
   /** 头部高度 */
   height: number;
 }
+
+
 
 /** 标多页签样式 */
 interface Tab {
@@ -27,7 +38,9 @@ interface OtherColor {
 
 declare namespace Theme {
   interface Setting {
+    isMobile: boolean
     darkMode: boolean
+    sider: Sider
     header: Header
     tab: Tab
     /** 主题颜色 */

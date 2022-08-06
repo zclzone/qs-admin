@@ -4,7 +4,7 @@ import { useDialog, useLoadingBar, useMessage, useNotification } from 'naive-ui'
 import { useCssVar } from '@vueuse/core'
 import type { GlobalThemeOverrides } from 'naive-ui'
 
-import { useAppStore, useThemeStore } from '@/store'
+import { useThemeStore } from '@/store'
 
 // 挂载naive组件的方法至window, 以便在全局使用
 function setupNaiveTools() {
@@ -53,18 +53,15 @@ watch(
   },
 )
 
-const appStore = useAppStore()
-function refreshCollapsed() {
-  // 移动端自动收起菜单
-  if (document.body.offsetWidth < 640 && !appStore.collapsed)
-    appStore.setCollapsed(true)
+function handleWindowResize() {
+  themStore.setIsMobile(document.body.offsetWidth <= 640)
 }
 onMounted(() => {
-  refreshCollapsed()
-  window.addEventListener('resize', refreshCollapsed)
+  handleWindowResize()
+  window.addEventListener('resize', handleWindowResize)
 })
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', refreshCollapsed)
+  window.removeEventListener('resize', handleWindowResize)
 })
 </script>
 

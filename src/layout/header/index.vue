@@ -13,9 +13,9 @@ import ThemeMode from './components/ThemeMode.vue'
     <BreadCrumb ml-15 hidden sm:block />
   </div>
   <div ml-auto flex items-center>
-    <ThemeMode hidden sm:block />
-    <GithubSite hidden sm:block />
-    <FullScreen hidden sm:block />
+    <ThemeMode />
+    <GithubSite />
+    <FullScreen />
     <UserAvatar />
   </div>
 </template>
