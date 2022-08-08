@@ -11,6 +11,7 @@ export default {
     customIcon: 'logo',
     role: ['admin'],
     requireAuth: true,
+    order: 1,
   },
   children: [
     {
