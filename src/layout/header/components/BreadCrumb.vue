@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { renderIcon } from '@/utils/common'
+import { renderCustomIcon, renderIcon } from '@/utils/common'
+import type { Meta } from '~/types/router'
 
 const router = useRouter()
 const route = useRoute()
@@ -9,12 +10,20 @@ function handleBreadClick(path: string) {
     return
   router.push(path)
 }
+
+function getIcon(meta?: Meta, size = 16) {
+  if (meta?.customIcon)
+    return renderCustomIcon(meta.customIcon, { size })
+  if (meta?.icon)
+    return renderIcon(meta.icon, { size })
+  return null
+}
 </script>
 
 <template>
   <n-breadcrumb>
     <n-breadcrumb-item v-for="item in route.matched.filter(item => !!item.meta?.title)" :key="item.path" @click="handleBreadClick(item.path)">
-      <component :is="renderIcon(item.meta?.icon as string, { size: 16 })" v-if="item.meta?.icon" />
+      <component :is="getIcon(item.meta)" />
       {{ item.meta.title }}
     </n-breadcrumb-item>
   </n-breadcrumb>
