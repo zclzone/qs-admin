@@ -67,7 +67,7 @@ const columns: DataTableColumns < RowData > = [
           type: 'error',
           onClick: () => handleDelete(row),
         },
-        { default: '删除', icon: renderIcon('material-symbols:delete-outline', { size: 14 }) },
+        { default: () => '删除', icon: renderIcon('material-symbols:delete-outline', { size: 14 }) },
       )
     },
   },
