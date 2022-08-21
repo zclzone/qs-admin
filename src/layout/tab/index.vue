@@ -63,7 +63,7 @@ async function handleContextMenu(e: MouseEvent, tabItem: TabItem) {
     <n-tag
       v-for="tab in tabStore.tabs"
       :key="tab.path"
-      class="px-15 mx-5 rounded-8 cursor-pointer  "
+      px-15 mx-5 rounded-4 cursor-pointer
       :type="tabStore.activeTab === tab.path ? 'primary' : 'default'"
       :closable="tabStore.tabs.length > 1"
       @click="handleTagClick(tab.path)"
