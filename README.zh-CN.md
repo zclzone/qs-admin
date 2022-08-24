@@ -100,10 +100,10 @@ pnpm cz
 - [https://template.qszone.com](https://template.qszone.com)
 - [https://zclzone.github.io/vue-naive-admin](https://zclzone.github.io/vue-naive-admin)
 
-### 入群交流
+### 入群交流 & 关于作者
 
-<a href="https://zclzone.github.io/qs-admin-docs/about/">
-  <img src="https://assets.qszone.com/image/入群.png" style="max-width: 600px" />
+<a href="https://blog.qszone.com/about/">
+  <img src="https://assets.qszone.com/images/about.png" style="max-width: 400px" />
 </a>
 
 

@@ -89,14 +89,20 @@ pnpm cz
 
 ### JS Version: Vue Naive Admin
 
-#### source code
+#### Source code
 
 - gitub: [https://github.com/zclzone/vue-naive-admin](https://github.com/zclzone/vue-naive-admin)
 - gitee: [https://gitee.com/zclzone/vue-naive-admin](https://gitee.com/zclzone/vue-naive-admin)
 
-#### preview
+#### Preview
 
 - [https://template.qszone.com](https://template.qszone.com)
 - [https://zclzone.github.io/vue-naive-admin](https://zclzone.github.io/vue-naive-admin)
+
+### Communication group & About the author
+
+<a href="https://blog.qszone.com/about/">
+  <img src="https://assets.qszone.com/images/about.png" style="max-width: 400px" />
+</a>
 
 
