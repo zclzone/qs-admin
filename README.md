@@ -17,7 +17,7 @@
 
 ### Introduction
 
-[Qs Admin](https://github.com/zclzone/qs-admin) is a **completely open source free and commercially allowed ** admin template，Based on the latest technology stack of front-end such as `Vue3、Vite3、TypeScript、Pinia、Unocss and Naive UI`. Compared with other more popular backend management templates, this project is more concise, lightweight, fresh style, very low learning costs, ideal for small and medium-sized projects or personal projects.
+[Qs Admin](https://github.com/zclzone/qs-admin) is a **completely open source free and commercially allowed** admin template，Based on the latest technology stack of front-end such as `Vue3、Vite3、TypeScript、Pinia、Unocss and Naive UI`. Compared with other more popular backend management templates, this project is more concise, lightweight, fresh style, very low learning costs, ideal for small and medium-sized projects or personal projects.
 
 ### Features
 
