@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import type { MenuOption } from 'naive-ui'
-import { useAppStore, usePermissionStore } from '@/store'
+import { useAppStore, usePermissionStore, useThemeStore } from '@/store'
 
 import { isUrl, renderCustomIcon, renderIcon } from '@/utils/common'
 import type { Meta, RouteType } from '~/types/router'
 
 const router = useRouter()
 const permissionStore = usePermissionStore()
+const themeStore = useThemeStore()
 const appStore = useAppStore()
 const { currentRoute } = router
 
@@ -91,6 +92,10 @@ function handleMenuSelect(key: string, item: MenuOption) {
   else {
     if (menuItem.path === currentRoute.value.path && !currentRoute.value.meta?.keepAlive)
       appStore.reloadPage()
+    else if (themeStore.isMobile) {
+      router.push(menuItem.path)
+      themeStore.setCollapsed(true)
+    }
     else
       router.push(menuItem.path)
   }
