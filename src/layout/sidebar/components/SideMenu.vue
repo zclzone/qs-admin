@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import type { MenuOption } from 'naive-ui'
-import { useAppStore, usePermissionStore, useThemeStore } from '@/store'
-
-import { isUrl, renderCustomIcon, renderIcon } from '@/utils/common'
 import type { Meta, RouteType } from '~/types/router'
+import { useAppStore, usePermissionStore, useThemeStore } from '@/store'
+import { isUrl, renderCustomIcon, renderIcon } from '@/utils/common'
 
 const router = useRouter()
 const permissionStore = usePermissionStore()
@@ -88,16 +87,15 @@ function handleMenuSelect(key: string, item: MenuOption) {
   const menuItem = item as MennuItem & MenuOption
   if (isUrl(menuItem.path)) {
     window.open(menuItem.path)
+    return
+  }
+  if (menuItem.path === currentRoute.value.path && !currentRoute.value.meta?.keepAlive) {
+    appStore.reloadPage()
   }
   else {
-    if (menuItem.path === currentRoute.value.path && !currentRoute.value.meta?.keepAlive)
-      appStore.reloadPage()
-    else if (themeStore.isMobile) {
-      router.push(menuItem.path)
-      themeStore.setCollapsed(true)
-    }
-    else
-      router.push(menuItem.path)
+    router.push(menuItem.path)
+    // 手机端自动收起菜单
+    themeStore.isMobile && themeStore.setCollapsed(true)
   }
 }
 </script>
