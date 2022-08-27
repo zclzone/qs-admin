@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -25,4 +26,6 @@ dist-ssr
 *.sw?
 
 stats.html
+
+types/components.d.ts
 
