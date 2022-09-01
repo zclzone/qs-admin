@@ -41,7 +41,7 @@ const themeStore = useThemeStore()
       >
         <AppHeader />
       </header>
-      <section border-b bc-eee dark:border-0 hidden sm:block>
+      <section v-if="themeStore.tab.visible" border-b bc-eee dark:border-0 hidden sm:block>
         <AppTab />
       </section>
       <section class="cus-scroll-y flex-1 p-15 overflow-auto" bg="#f5f6fb" dark="bg-[#101014]">
