@@ -18,9 +18,9 @@ interface RowData {
 }
 const columns: DataTableColumns < RowData > = [
   { type: 'selection' },
-  { title: '标题', key: 'title', width: 150 },
-  { title: '分类', key: 'category', width: 80 },
-  { title: '描述', key: 'description', width: 200 },
+  { title: '标题', key: 'title', width: 150, ellipsis: { tooltip: true } },
+  { title: '分类', key: 'category', width: 80, ellipsis: { tooltip: true } },
+  { title: '描述', key: 'description', width: 200, ellipsis: { tooltip: true } },
   { title: '创建人', key: 'author', width: 80 },
   {
     title: '创建时间',
@@ -121,8 +121,17 @@ function handleDelete(row: RowData) {
 </script>
 
 <template>
-  <div>
+  <div bg-white h-full p-24>
+    <div flex>
+      <NButton ml-auto type="primary">
+        <template #icon>
+          <icon-material-symbols-add />
+        </template>
+        新增
+      </NButton>
+    </div>
     <n-data-table
+      mt-20
       :columns="columns"
       :row-key="(row:RowData) => row.id"
       :data="tableData"
