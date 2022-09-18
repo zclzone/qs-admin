@@ -5,6 +5,7 @@ import AppFooter from '@/components/common/AppFooter.vue'
 import { setToken } from '@/utils/auth/token'
 import { getLocal, removeLocal, setLocal } from '@/utils/storage'
 import bgImg from '@/assets/images/login_bg.webp'
+import { addDynamicRoutes } from '@/router'
 
 const title: string = import.meta.env.VITE_APP_TITLE
 
@@ -47,6 +48,7 @@ async function handleLogin() {
       else
         removeLocal('loginInfo')
 
+      await addDynamicRoutes()
       if (query.redirect) {
         const path = query.redirect as string
         Reflect.deleteProperty(query, 'redirect')

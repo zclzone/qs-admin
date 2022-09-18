@@ -11,6 +11,6 @@ import { setupRouter } from './router'
 const app = createApp(App)
 
 setupStore(app)
-setupRouter(app)
+await setupRouter(app)
 
 app.mount('#app')

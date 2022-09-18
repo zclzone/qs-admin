@@ -58,6 +58,12 @@ export const NOT_FOUND_ROUTE: RouteType = {
   isHidden: true,
 }
 
+export const EMPTY_ROUTE: RouteType = {
+  name: 'Empty',
+  path: '/:pathMatch(.*)*',
+  component: () => {},
+}
+
 const modules = import.meta.glob('@/views/**/route.ts', { eager: true }) as RouteModule
 const asyncRoutes: RoutesType = []
 Object.keys(modules).forEach((key) => {
