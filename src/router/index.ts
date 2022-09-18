@@ -14,14 +14,12 @@ export const router = createRouter({
   scrollBehavior: () => ({ left: 0, top: 0 }),
 })
 
-export function resetRouter() {
+export async function resetRouter() {
   router.getRoutes().forEach((route) => {
     const { name } = route
     router.hasRoute(name!) && router.removeRoute(name!)
   })
-  routes.forEach((route) => {
-    !router.hasRoute(route.name) && router.addRoute(route)
-  })
+  await addDynamicRoutes()
 }
 
 export async function addDynamicRoutes() {
