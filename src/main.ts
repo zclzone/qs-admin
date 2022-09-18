@@ -8,9 +8,11 @@ import App from './App.vue'
 import { setupStore } from './store'
 import { setupRouter } from './router'
 
-const app = createApp(App)
+async function setupApp() {
+  const app = createApp(App)
+  setupStore(app)
+  await setupRouter(app)
+  app.mount('#app')
+}
 
-setupStore(app)
-await setupRouter(app)
-
-app.mount('#app')
+setupApp()
