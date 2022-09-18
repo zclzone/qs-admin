@@ -39,7 +39,7 @@ specifiers:
   vite-plugin-mock: ^2.9.6
   vite-plugin-svg-icons: ^2.0.1
   vue: ^3.2.37
-  vue-router: ^4.1.2
+  vue-router: ^4.1.5
   vue-tsc: ^0.38.4
 
 dependencies:
@@ -51,7 +51,7 @@ dependencies:
   mockjs: 1.1.0
   pinia: 2.0.17_j6bzmzd4ujpabbp5objtwxyjp4
   vue: 3.2.37
-  vue-router: 4.1.3_vue@3.2.37
+  vue-router: 4.1.5_vue@3.2.37
 
 devDependencies:
   '@antfu/eslint-config': 0.25.2_qugx7qdu5zevzvxaiqyxfiwquq
@@ -6488,8 +6488,8 @@ packages:
       - supports-color
     dev: true
 
-  /vue-router/4.1.3_vue@3.2.37:
-    resolution: {integrity: sha512-XvK81bcYglKiayT7/vYAg/f36ExPC4t90R/HIpzrZ5x+17BOWptXLCrEPufGgZeuq68ww4ekSIMBZY1qdUdfjA==}
+  /vue-router/4.1.5_vue@3.2.37:
+    resolution: {integrity: sha512-IsvoF5D2GQ/EGTs/Th4NQms9gd2NSqV+yylxIyp/OYp8xOwxmU8Kj/74E9DTSYAyH5LX7idVUngN3JSj1X4xcQ==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
