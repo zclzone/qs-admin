@@ -13,16 +13,18 @@ const options = [
 ]
 
 function handleSelect(key: string) {
-  window.$dialog?.info({
-    content: '确认退出？',
-    title: '提示',
-    positiveText: '确定',
-    negativeText: '取消',
-    onPositiveClick() {
-      userStore.logout()
-      window.$message?.success('已退出登录!')
-    },
-  })
+  if (key === 'logout') {
+    window.$dialog?.info({
+      content: '确认退出？',
+      title: '提示',
+      positiveText: '确定',
+      negativeText: '取消',
+      onPositiveClick() {
+        userStore.logout()
+        window.$message?.success('已退出登录!')
+      },
+    })
+  }
 }
 </script>
 
