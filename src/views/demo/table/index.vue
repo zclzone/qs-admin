@@ -85,7 +85,6 @@ async function initTableData() {
     tableData.value = res.data
   }
   catch (error) {
-    console.error(error)
     tableData.value = []
   }
 

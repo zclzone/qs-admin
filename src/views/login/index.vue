@@ -40,30 +40,25 @@ async function handleLogin() {
   try {
     loging.value = true
     const res: any = await api.login({ name, password: password.toString() })
-    if (res.code === 0) {
-      window.$notification?.success({ title: '登录成功！', duration: 2500 })
-      setToken(res.data.token)
-      if (isRemember.value)
-        setLocal('loginInfo', { name, password })
-      else
-        removeLocal('loginInfo')
+    window.$notification?.success({ title: '登录成功！', duration: 2500 })
+    setToken(res.data.token)
+    if (isRemember.value)
+      setLocal('loginInfo', { name, password })
+    else
+      removeLocal('loginInfo')
 
-      await addDynamicRoutes()
-      if (query.redirect) {
-        const path = query.redirect as string
-        Reflect.deleteProperty(query, 'redirect')
-        router.push({ path, query })
-      }
-      else {
-        router.push('/')
-      }
+    await addDynamicRoutes()
+    if (query.redirect) {
+      const path = query.redirect as string
+      Reflect.deleteProperty(query, 'redirect')
+      router.push({ path, query })
     }
     else {
-      window.$message?.warning(res.message)
+      router.push('/')
     }
   }
-  catch (error: any) {
-    window.$message?.error(error.message)
+  catch (error) {
+    console.error(error)
   }
   loging.value = false
 }

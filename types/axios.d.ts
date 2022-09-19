@@ -1,0 +1,20 @@
+import type { AxiosRequestConfig } from 'axios'
+
+interface RequestConfig extends AxiosRequestConfig {
+  /** 接口是否需要token */
+  noNeedToken?: boolean
+  /** 接口是否需要错误提醒 */
+  noNeedTip?: boolean
+}
+
+interface ErrorResolveOptions {
+  code?: number | string
+  message?: string
+  data?: any
+}
+
+interface ErrorResolveResponse {
+  code?: number | string
+  message: string
+  data?: any
+}

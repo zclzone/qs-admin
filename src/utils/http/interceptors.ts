@@ -1,24 +1,16 @@
-import type { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
-import { isWithoutToken } from './helpers'
+import type { AxiosError, AxiosResponse } from 'axios'
+import { AxiosRejectError, resolveResError } from './helpers'
 import { getToken } from '~/src/utils/auth/token'
-import { toLogin } from '@/utils/auth/router'
-import { isNullOrUndef } from '@/utils/common'
+import type { ErrorResolveOptions, RequestConfig } from '~/types/axios'
 
-export function reqResolve(config: AxiosRequestConfig) {
-  // 防止缓存，给get请求加上时间戳
-  if (config.method === 'get')
-    config.params = { ...config.params, t: new Date().getTime() }
-
+export function reqResolve(config: RequestConfig) {
   // 处理不需要token的请求
-  if (isWithoutToken(config))
+  if (config.noNeedToken)
     return config
 
   const token = getToken()
-  if (!token) {
-    // * 未登录或者token过期的情况下,跳转登录页重新登录
-    toLogin()
-    return Promise.reject(new Error('未登录'))
-  }
+  if (!token)
+    return Promise.reject(new AxiosRejectError({ code: 401, message: '登录已过期，请重新登录！' }))
 
   /**
    * * 加上 token
@@ -38,38 +30,23 @@ export function reqReject(error: AxiosError) {
 }
 
 export function resResolve(response: AxiosResponse) {
-  return response?.data
+  const { noNeedTip } = response.config as RequestConfig
+  if (response.data?.code !== 0) {
+    const { message, code } = resolveResError(response?.data)
+    !noNeedTip && window.$message?.error(message)
+    return Promise.reject(new AxiosRejectError({ code, message, data: response?.data }))
+  }
+  return Promise.resolve(response?.data)
 }
 
 export function resReject(error: AxiosError) {
-  let { code, message }: any = error.response?.data || {}
-  if (isNullOrUndef(code)) {
-    // 未知错误
-    code = -1
-    message = '接口异常！'
+  if (!error || !error.response) {
+    const { code, message } = resolveResError({ code: error?.code, message: error.message })
+    window.$message?.error(error?.message || '未知异常！')
+    return Promise.reject(new AxiosRejectError({ code, message, data: error }))
   }
-  else {
-    /**
-     * TODO 此处可以根据后端返回的错误码自定义框架层面的错误处理
-     */
-    switch (code) {
-      case 400:
-        message = message || '请求参数错误'
-        break
-      case 401:
-        message = message || '登录已过期'
-        break
-      case 403:
-        message = message || '没有权限'
-        break
-      case 404:
-        message = message || '资源或接口不存在'
-        break
-      default:
-        message = message || '未知异常'
-        break
-    }
-  }
-  console.error(`【${code}】 ${error}`)
-  return Promise.resolve({ code, message, error })
+  const { code, message } = resolveResError(error.response?.data as ErrorResolveOptions, error.message)
+  const { noNeedTip } = error.config as RequestConfig
+  !noNeedTip && window.$message?.error(message)
+  return Promise.reject(new AxiosRejectError({ code, message, data: error.response?.data }))
 }
