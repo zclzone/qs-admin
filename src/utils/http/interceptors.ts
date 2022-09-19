@@ -3,6 +3,7 @@ import { AxiosRejectError, resolveResError } from './helpers'
 import { getToken } from '~/src/utils/auth/token'
 import type { ErrorResolveOptions, RequestConfig } from '~/types/axios'
 
+/** 请求拦截 */
 export function reqResolve(config: RequestConfig) {
   // 处理不需要token的请求
   if (config.noNeedToken)
@@ -25,10 +26,12 @@ export function reqResolve(config: RequestConfig) {
   return config
 }
 
+/** 请求错误拦截 */
 export function reqReject(error: AxiosError) {
   return Promise.reject(error)
 }
 
+/** 响应拦截 */
 export function resResolve(response: AxiosResponse) {
   const { noNeedTip } = response.config as RequestConfig
   if (response.data?.code !== 0) {
@@ -39,10 +42,11 @@ export function resResolve(response: AxiosResponse) {
   return Promise.resolve(response?.data)
 }
 
+/** 响应错误拦截 */
 export function resReject(error: AxiosError) {
   if (!error || !error.response) {
     const { code, message } = resolveResError({ code: error?.code, message: error.message })
-    window.$message?.error(error?.message || '未知异常！')
+    window.$message?.error(message)
     return Promise.reject(new AxiosRejectError({ code, message, data: error }))
   }
   const { code, message } = resolveResError(error.response?.data as ErrorResolveOptions, error.message)

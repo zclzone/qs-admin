@@ -3,6 +3,7 @@ import { removeToken } from '@/utils/auth/token'
 import { toLogin } from '@/utils/auth/router'
 import type { ErrorResolveOptions, ErrorResolveResponse } from '~/types/axios'
 
+/** 自定义错误 */
 export class AxiosRejectError extends Error {
   code?: number | string
   data?: any
