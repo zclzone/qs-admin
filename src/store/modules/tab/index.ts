@@ -61,5 +61,9 @@ export const useTabStore = defineStore('tab', {
       if (!filterTabs.find(item => item.path === this.activeTab))
         router.push(filterTabs[filterTabs.length - 1].path)
     },
+    resetTabs() {
+      this.setTabs([])
+      this.setActiveTab('')
+    },
   },
 })

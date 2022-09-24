@@ -23,5 +23,8 @@ export const usePermissionStore = defineStore('permission', {
       this.accessRoutes = accessRoutes
       return accessRoutes
     },
+    resetPermission() {
+      this.$reset()
+    },
   },
 })
