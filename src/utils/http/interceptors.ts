@@ -1,7 +1,7 @@
 import type { AxiosError, AxiosResponse } from 'axios'
 import { AxiosRejectError, resolveResError } from './helpers'
 import { getToken } from '~/src/utils/auth/token'
-import type { ErrorResolveOptions, RequestConfig } from '~/types/axios'
+import type { RequestConfig } from '~/types/axios'
 
 /** 请求拦截 */
 export function reqResolve(config: RequestConfig) {
@@ -33,24 +33,37 @@ export function reqReject(error: AxiosError) {
 
 /** 响应拦截 */
 export function resResolve(response: AxiosResponse) {
-  const { noNeedTip } = response.config as RequestConfig
-  if (response.data?.code !== 0) {
-    const { message, code } = resolveResError(response?.data)
+  // TODO: 处理不同的 response.headers
+  const { data, status, config, statusText } = response
+  if (data?.code !== 0) {
+    const code = data?.code ?? status
+
+    /** 根据code处理对应的操作，并返回处理后的message */
+    const message = resolveResError(code, data?.message ?? statusText)
+    const { noNeedTip } = config as RequestConfig
     !noNeedTip && window.$message?.error(message)
-    return Promise.reject(new AxiosRejectError({ code, message, data: response?.data }))
+    return Promise.reject(new AxiosRejectError({ code, message, data: data || response }))
   }
-  return Promise.resolve(response?.data)
+  return Promise.resolve(data)
 }
 
 /** 响应错误拦截 */
 export function resReject(error: AxiosError) {
   if (!error || !error.response) {
-    const { code, message } = resolveResError({ code: error?.code, message: error.message })
+    const code = error?.code
+    /** 根据code处理对应的操作，并返回处理后的message */
+    const message = resolveResError(code, error.message)
     window.$message?.error(message)
     return Promise.reject(new AxiosRejectError({ code, message, data: error }))
   }
-  const { code, message } = resolveResError(error.response?.data as ErrorResolveOptions, error.message)
-  const { noNeedTip } = error.config as RequestConfig
+  const { data, status, config } = error.response
+  let { code, message } = data as AxiosRejectError
+  code = code ?? status
+  message = message ?? error.message
+  message = resolveResError(code, message)
+  /** 需要错误提醒 */
+  const { noNeedTip } = config as RequestConfig
+
   !noNeedTip && window.$message?.error(message)
-  return Promise.reject(new AxiosRejectError({ code, message, data: error.response?.data }))
+  return Promise.reject(new AxiosRejectError({ code, message, data: error.response?.data || error.response }))
 }

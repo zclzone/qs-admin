@@ -7,12 +7,6 @@ interface RequestConfig extends AxiosRequestConfig {
   noNeedTip?: boolean
 }
 
-interface ErrorResolveOptions {
-  code?: number | string
-  message?: string
-  data?: any
-}
-
 interface ErrorResolveResponse {
   code?: number | string
   message: string
