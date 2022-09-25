@@ -5,8 +5,6 @@ const appStore = useAppStore()
 
 <template>
   <router-view v-slot="{ Component, route }">
-    <transition name="fade-slide" mode="out-in" appear>
-      <component :is="Component" v-if="appStore.reloadFlag" :key="route.path" />
-    </transition>
+    <component :is="Component" v-if="appStore.reloadFlag" :key="route.path" />
   </router-view>
 </template>
