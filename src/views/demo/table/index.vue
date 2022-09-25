@@ -120,7 +120,7 @@ function handleDelete(row: RowData) {
 </script>
 
 <template>
-  <div bg-white h-full p-24>
+  <CommonPage :show-footer="true">
     <div flex>
       <NButton ml-auto type="primary">
         <template #icon>
@@ -138,6 +138,6 @@ function handleDelete(row: RowData) {
       :scroll-x="1600"
       :loading="loading"
     />
-  </div>
+  </CommonPage>
 </template>
 

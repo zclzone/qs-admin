@@ -8,7 +8,7 @@ const numList = ref<NumItem[]>(new Array(81).fill(undefined).map((item, index) =
 </script>
 
 <template>
-  <div>
+  <CommonPage :show-footer="true">
     <n-button type="primary" @click="numList = shuffle(numList)">
       打乱
     </n-button>
@@ -17,6 +17,6 @@ const numList = ref<NumItem[]>(new Array(81).fill(undefined).map((item, index) =
         {{ item.num }}
       </li>
     </transition-group>
-  </div>
+  </CommonPage>
 </template>
 

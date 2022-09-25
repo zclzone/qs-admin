@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useStorage } from '@vueuse/core'
 import api from './api'
-import AppFooter from '@/components/common/AppFooter.vue'
 import { setToken } from '@/utils/auth/token'
 import { getLocal, removeLocal, setLocal } from '@/utils/storage'
 import bgImg from '@/assets/images/login_bg.webp'
@@ -65,10 +64,7 @@ async function handleLogin() {
 </script>
 
 <template>
-  <div
-    class="cus-scroll h-full py-15 flex-col overflow-auto bg-cover"
-    :style="{ backgroundImage: `url(${bgImg})` }"
-  >
+  <AppPage :show-footer="true" bg-cover :style="{ backgroundImage: `url(${bgImg})` }">
     <div m-auto p-15 f-c-c min-w-345 rounded-10 card-shadow bg-white dark:bg-dark bg-opacity-60>
       <div w-380 hidden md:block px-20 py-35>
         <img src="@/assets/images/login_banner.webp" w-full alt="login_banner">
@@ -110,7 +106,6 @@ async function handleLogin() {
         </div>
       </div>
     </div>
-    <AppFooter />
-  </div>
+  </AppPage>
 </template>
 
