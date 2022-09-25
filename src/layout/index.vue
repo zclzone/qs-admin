@@ -34,7 +34,7 @@ const themeStore = useThemeStore()
       <SideBar />
     </n-drawer>
 
-    <article flex-1 flex-col overflow-auto>
+    <article flex-1 flex-col overflow-hidden>
       <header
         bg-white px-15 border-b bc-eee flex items-center dark="bg-dark border-0"
         :style="`height: ${themeStore.header.height}px`"
@@ -44,7 +44,7 @@ const themeStore = useThemeStore()
       <section v-if="themeStore.tab.visible" border-b bc-eee dark:border-0 hidden sm:block>
         <AppTab />
       </section>
-      <section class="cus-scroll-y flex-1 p-15 overflow-auto" bg="#f5f6fb" dark="bg-[#101014]">
+      <section flex-1 overflow-hidden bg="#f5f6fb" dark="bg-[#101014]">
         <AppMain />
       </section>
     </article>
