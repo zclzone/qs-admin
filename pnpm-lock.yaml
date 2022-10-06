@@ -25,7 +25,7 @@ specifiers:
   mockjs: ^1.1.0
   naive-ui: ^2.31.0
   pinia: ^2.0.16
-  rollup-plugin-visualizer: ^5.7.1
+  rollup-plugin-visualizer: ^5.8.2
   sass: ^1.53.0
   typescript: ^4.6.4
   unocss: ^0.45.26
@@ -71,7 +71,7 @@ devDependencies:
   husky: 8.0.1
   lint-staged: 13.0.3
   naive-ui: 2.32.1_vue@3.2.37
-  rollup-plugin-visualizer: 5.7.1
+  rollup-plugin-visualizer: 5.8.2
   sass: 1.54.1
   typescript: 4.7.4
   unocss: 0.45.26_vite@3.1.0
@@ -5392,14 +5392,16 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rollup-plugin-visualizer/5.7.1:
-    resolution: {integrity: sha512-E/IgOMnmXKlc6ICyf53ok1b6DxPeNVUs3R0kYYPuDpGfofT4bkiG+KtSMlGjMACFmfwbbqTVDZBIF7sMZVKJbA==}
+  /rollup-plugin-visualizer/5.8.2:
+    resolution: {integrity: sha512-Fh7KoAa7FVVOojmyyX9ro7fBSR7mPG2cgfDbA877HM4IeJJtSZO+I/R3h/u6TB8wVP5J4pXPpTaRMSREyqCS3g==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
       rollup: ^2.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
     dependencies:
-      nanoid: 3.3.4
       open: 8.4.0
       source-map: 0.7.4
       yargs: 17.5.1
