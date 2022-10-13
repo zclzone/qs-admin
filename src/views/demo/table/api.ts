@@ -1,4 +1,4 @@
-import request from '@/utils/http'
+import { request } from '@/utils'
 
 export default {
   getPosts: () => request.get('/table/posts'),

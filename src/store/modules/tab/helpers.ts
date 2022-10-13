@@ -1,4 +1,4 @@
-import { getSession } from '@/utils/storage'
+import { getSession } from '@/utils'
 
 export const activeTab = getSession('activeTab')
 export const tabs = getSession('tabs')

@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { useStorage } from '@vueuse/core'
 import api from './api'
-import { setToken } from '@/utils/auth/token'
-import { getLocal, removeLocal, setLocal } from '@/utils/storage'
+import { getLocal, removeLocal, setLocal, setToken } from '@/utils'
 import bgImg from '@/assets/images/login_bg.webp'
 import { addDynamicRoutes } from '@/router'
 

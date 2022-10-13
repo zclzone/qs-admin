@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAppStore, useTabStore } from '@/store'
-import { renderIcon } from '@/utils/common'
+import { renderIcon } from '@/utils'
 
 interface Props {
   show?: boolean

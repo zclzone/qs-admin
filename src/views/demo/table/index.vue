@@ -3,7 +3,7 @@ import type { DataTableColumns } from 'naive-ui'
 import { NButton, NSwitch } from 'naive-ui'
 import dayjs from 'dayjs'
 import api from './api'
-import { isNullOrUndef, renderIcon } from '@/utils/common'
+import { isNullOrUndef, renderIcon } from '@/utils'
 
 interface RowData {
   id: number

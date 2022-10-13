@@ -2,7 +2,7 @@
 import type { MenuOption } from 'naive-ui'
 import type { Meta, RouteType } from '~/types/router'
 import { useAppStore, usePermissionStore, useThemeStore } from '@/store'
-import { isUrl, renderCustomIcon, renderIcon } from '@/utils/common'
+import { isUrl, renderCustomIcon, renderIcon } from '@/utils'
 
 const router = useRouter()
 const permissionStore = usePermissionStore()

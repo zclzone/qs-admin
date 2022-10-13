@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
-import { removeToken } from '@/utils/auth/token'
-import { toLogin } from '@/utils/auth/router'
+import { removeToken, toLogin } from '@/utils'
 import { usePermissionStore, useTabStore } from '@/store'
 import { resetRouter } from '@/router'
 import api from '@/api'

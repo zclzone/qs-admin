@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useUserStore } from '@/store'
-import { renderIcon } from '@/utils/common'
+import { renderIcon } from '@/utils'
 
 const userStore = useUserStore()
 

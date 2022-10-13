@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { renderCustomIcon, renderIcon } from '@/utils/common'
+import { renderCustomIcon, renderIcon } from '@/utils'
 import type { Meta } from '~/types/router'
 
 const router = useRouter()

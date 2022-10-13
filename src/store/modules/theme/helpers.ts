@@ -1,6 +1,6 @@
 import type { GlobalThemeOverrides } from 'naive-ui'
 import themeSetting from '~/settings/theme.json'
-import { addColorAlpha, getColorPalette } from '@/utils/common'
+import { addColorAlpha, getColorPalette } from '@/utils'
 
 type ColorType = 'primary' | 'info' | 'success' | 'warning' | 'error'
 type ColorScene = '' | 'Suppl' | 'Hover' | 'Pressed' | 'Active'

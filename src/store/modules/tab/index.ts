@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { WITHOUT_TAB_PATHS, activeTab, tabs } from './helpers'
 import { router } from '@/router'
-import { setSession } from '@/utils/storage'
+import { setSession } from '@/utils'
 
 export interface TabItem {
   name: string

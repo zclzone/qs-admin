@@ -1,4 +1,4 @@
-import { getLocal, getLocalExpire, removeLocal, setLocal } from '@/utils/storage'
+import { getLocal, getLocalExpire, removeLocal, setLocal } from '@/utils'
 import api from '@/api'
 
 const TOKEN_CODE = 'access_token'
