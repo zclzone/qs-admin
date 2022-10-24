@@ -40,7 +40,7 @@ specifiers:
   vite-plugin-svg-icons: ^2.0.1
   vue: ^3.2.41
   vue-router: ^4.1.5
-  vue-tsc: ^0.38.4
+  vue-tsc: ^0.38.9
 
 dependencies:
   '@vueuse/core': 8.9.4_vue@3.2.41
