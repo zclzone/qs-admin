@@ -11,7 +11,7 @@ specifiers:
   '@types/node': ^18.0.4
   '@vitejs/plugin-vue': ^3.1.2
   '@vueuse/core': ^8.9.4
-  '@zclzone/crud': ^0.0.8
+  '@zclzone/crud': 0.0.10
   axios: ^0.27.2
   colord: ^2.9.2
   commitizen: ^4.2.5
@@ -45,7 +45,7 @@ specifiers:
 
 dependencies:
   '@vueuse/core': 8.9.4_vue@3.2.41
-  '@zclzone/crud': 0.0.8_naive-ui@2.33.5
+  '@zclzone/crud': 0.0.10_naive-ui@2.33.5
   axios: 0.27.2
   crypto-js: 4.1.1
   dayjs: 1.11.6
@@ -1198,8 +1198,8 @@ packages:
       vue: 3.2.41
       vue-demi: 0.13.11_vue@3.2.41
 
-  /@zclzone/crud/0.0.8_naive-ui@2.33.5:
-    resolution: {integrity: sha512-ed4a/ZA2OO1VfaP2nG46yl4DornJAqll7djpbBQYrVU9u9WFrMjSc1Kpig5e8DBdHEukbhAsNQXjq4AKYaiysQ==}
+  /@zclzone/crud/0.0.10_naive-ui@2.33.5:
+    resolution: {integrity: sha512-MNlMhGoTKQ7/DdMrqbnwsUJAWt8db84YQkwGwysRrmXWjLR3uW7BprvzpR4DOhI9IlrtU+T4xUvwVFTO25iIrg==}
     peerDependencies:
       naive-ui: ^2.33.5
     dependencies:
