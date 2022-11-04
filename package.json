@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^8.9.4",
+    "@zclzone/crud": "^0.0.8",
     "axios": "^0.27.2",
     "crypto-js": "^4.1.1",
     "dayjs": "^1.11.3",
