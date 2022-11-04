@@ -34,7 +34,7 @@
 
 ### Preview
 
-[https://template.qszone.com](https://template.qszone.com)
+[https://admin.qszone.com](https://admin.qszone.com)
 
 [https://zclzone.github.io/qs-admin](https://zclzone.github.io/qs-admin)
 
