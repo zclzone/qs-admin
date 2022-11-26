@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import type { MenuOption } from 'naive-ui'
+import type { MenuInst, MenuOption } from 'naive-ui'
 import type { Meta, RouteType } from '~/types/router'
 import { useAppStore, usePermissionStore, useThemeStore } from '@/store'
 import { isUrl, renderCustomIcon, renderIcon } from '@/utils'
 
 const router = useRouter()
+const currentRoute = useRoute()
 const permissionStore = usePermissionStore()
 const themeStore = useThemeStore()
 const appStore = useAppStore()
-const { currentRoute } = router
+
+const menu = ref<MenuInst>()
+watch(currentRoute, async () => {
+  await nextTick()
+  menu.value?.showOption()
+})
 
 const menuOptions = computed(() => {
   return permissionStore.menus.map(item => getMenuItem(item)).sort((a, b) => a.order - b.order)
@@ -89,7 +95,7 @@ function handleMenuSelect(key: string, item: MenuOption) {
     window.open(menuItem.path)
     return
   }
-  if (menuItem.path === currentRoute.value.path && !currentRoute.value.meta?.keepAlive) {
+  if (menuItem.path === currentRoute.path && !currentRoute.meta?.keepAlive) {
     appStore.reloadPage()
   }
   else {
@@ -102,6 +108,7 @@ function handleMenuSelect(key: string, item: MenuOption) {
 
 <template>
   <n-menu
+    ref="menu"
     class="side-menu"
     accordion
     :indent="18"
