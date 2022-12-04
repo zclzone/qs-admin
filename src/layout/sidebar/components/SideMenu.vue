@@ -95,14 +95,13 @@ function handleMenuSelect(key: string, item: MenuOption) {
     window.open(menuItem.path)
     return
   }
-  if (menuItem.path === currentRoute.path && !currentRoute.meta?.keepAlive) {
+  if (menuItem.path === currentRoute.path && !currentRoute.meta?.keepAlive)
     appStore.reloadPage()
-  }
-  else {
+  else
     router.push(menuItem.path)
-    // 手机端自动收起菜单
-    themeStore.isMobile && themeStore.setCollapsed(true)
-  }
+
+  // 手机端自动收起菜单
+  themeStore.isMobile && themeStore.setCollapsed(true)
 }
 </script>
 
