@@ -32,17 +32,17 @@ function resolvePath(basePath: string, path: string) {
   )
 }
 
-interface MennuItem {
+interface MenuItem {
   label: string
   key: string
   path: string
   icon: (() => import('vue').VNodeChild) | null
   order: number
-  children?: Array<MennuItem>
+  children?: Array<MenuItem>
 }
 
-function getMenuItem(route: RouteType, basePath = ''): MennuItem {
-  let menuItem: MennuItem = {
+function getMenuItem(route: RouteType, basePath = ''): MenuItem {
+  let menuItem: MenuItem = {
     label: (route.meta && route.meta.title) || route.name,
     key: route.name,
     path: resolvePath(basePath, route.path),
@@ -90,7 +90,7 @@ function getIcon(meta?: Meta): (() => import('vue').VNodeChild) | null {
 }
 
 function handleMenuSelect(key: string, item: MenuOption) {
-  const menuItem = item as MennuItem & MenuOption
+  const menuItem = item as MenuItem & MenuOption
   if (isUrl(menuItem.path)) {
     window.open(menuItem.path)
     return
