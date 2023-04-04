@@ -1,0 +1,1 @@
+import{br as a,bs as e,b7 as n,bt as o}from"./index.3d03cbd1.js";var i=a(Object.keys,Object);const y=i;var p=Object.prototype,u=p.hasOwnProperty;function v(r){if(!e(r))return y(r);var t=[];for(var s in Object(r))u.call(r,s)&&s!="constructor"&&t.push(s);return t}function f(r){return n(r)?o(r):v(r)}export{f as k};
