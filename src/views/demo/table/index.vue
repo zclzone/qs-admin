@@ -1,20 +1,8 @@
 <script setup lang="ts">
-import type { DataTableColumns } from 'naive-ui'
 import { NButton, NSwitch } from 'naive-ui'
 import { CrudModal, CrudTable, QueryBarItem, useCRUD } from '@zclzone/crud'
 import api from './api'
 import { formatDateTime, isNullOrUndef, renderIcon } from '@/utils'
-
-interface RowData {
-  id: number
-  isPublish: boolean
-  title: string
-  category: string
-  author: string
-  createDate: string
-  updateDate: string
-  publishing: boolean
-}
 
 const $table = ref<any>(null)
 /** QueryBar筛选参数（可选） */
@@ -43,7 +31,7 @@ const {
   refresh: () => $table.value?.handleSearch(),
 })
 
-const columns: DataTableColumns<RowData> = [
+const columns: any = [
   { type: 'selection', fixed: 'left' },
   {
     title: '发布',
@@ -51,7 +39,7 @@ const columns: DataTableColumns<RowData> = [
     width: 60,
     align: 'center',
     fixed: 'left',
-    render(row) {
+    render(row: any) {
       return h(NSwitch, {
         size: 'small',
         rubberBand: false,
@@ -68,7 +56,7 @@ const columns: DataTableColumns<RowData> = [
     title: '创建时间',
     key: 'createDate',
     width: 150,
-    render(row) {
+    render(row: any) {
       return h('span', formatDateTime(row.createDate))
     },
   },
@@ -76,7 +64,7 @@ const columns: DataTableColumns<RowData> = [
     title: '最后更新时间',
     key: 'updateDate',
     width: 150,
-    render(row) {
+    render(row: any) {
       return h('span', formatDateTime(row.updateDate))
     },
   },
@@ -86,7 +74,8 @@ const columns: DataTableColumns<RowData> = [
     width: 240,
     align: 'center',
     fixed: 'right',
-    render(row) {
+    hideInExcel: true,
+    render(row: any) {
       return [
         h(
           NButton,
@@ -131,7 +120,7 @@ function onChecked(rowKeys: string[]) {
 }
 
 // 发布
-function handlePublish(row: RowData) {
+function handlePublish(row: any) {
   if (isNullOrUndef(row.id))
     return
 
@@ -151,9 +140,14 @@ onMounted(() => {
 <template>
   <CommonPage show-footer title="文章">
     <template #action>
-      <NButton type="primary" @click="handleAdd">
-        <TheIcon icon="material-symbols:add" :size="18" class="mr-5" /> 新建文章
-      </NButton>
+      <div>
+        <NButton type="primary" secondary @click="$table?.handleExport()">
+          <TheIcon icon="mdi:download" :size="18" class="mr-5" /> 导出
+        </NButton>
+        <NButton type="primary" class="ml-16" @click="handleAdd">
+          <TheIcon icon="material-symbols:add" :size="18" class="mr-5" /> 新建文章
+        </NButton>
+      </div>
     </template>
 
     <CrudTable
