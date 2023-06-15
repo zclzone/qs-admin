@@ -7,10 +7,10 @@ import { useThemeStore } from '@/store'
 type ThemeVars = Exclude<GlobalThemeOverrides['common'], undefined>
 type ThemeVarsKeys = keyof ThemeVars
 
-const themStore = useThemeStore()
+const themeStore = useThemeStore()
 
 watch(
-  () => themStore.naiveThemeOverrides.common,
+  () => themeStore.naiveThemeOverrides.common,
   (common) => {
     for (const key in common) {
       useCssVar(`--${kebabCase(key)}`, document.documentElement).value = common[key as ThemeVarsKeys] || ''
@@ -22,7 +22,7 @@ watch(
 )
 
 watch(
-  () => themStore.darkMode,
+  () => themeStore.darkMode,
   (newValue) => {
     if (newValue)
       document.documentElement.classList.add('dark')
@@ -35,7 +35,7 @@ watch(
 )
 
 function handleWindowResize() {
-  themStore.setIsMobile(document.body.offsetWidth <= 640)
+  themeStore.setIsMobile(document.body.offsetWidth <= 640)
 }
 onMounted(() => {
   handleWindowResize()
@@ -47,7 +47,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <n-config-provider wh-full :theme-overrides="themStore.naiveThemeOverrides" :theme="themStore.naiveTheme">
+  <n-config-provider wh-full :theme-overrides="themeStore.naiveThemeOverrides" :theme="themeStore.naiveTheme">
     <slot />
   </n-config-provider>
 </template>
