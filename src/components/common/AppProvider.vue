@@ -1,32 +1,13 @@
 <script setup lang="ts">
 import { kebabCase } from 'lodash-es'
-import { useDialog, useLoadingBar, useMessage, useNotification } from 'naive-ui'
 import { useCssVar } from '@vueuse/core'
 import type { GlobalThemeOverrides } from 'naive-ui'
-
 import { useThemeStore } from '@/store'
-
-// 挂载naive组件的方法至window, 以便在全局使用
-function setupNaiveTools() {
-  window.$loadingBar = useLoadingBar()
-  window.$message = useMessage()
-  window.$dialog = useDialog()
-  window.$notification = useNotification()
-}
-
-const NaiveProviderContent = defineComponent({
-  setup() {
-    setupNaiveTools()
-  },
-  render() {
-    return h('div')
-  },
-})
-
-const themStore = useThemeStore()
 
 type ThemeVars = Exclude<GlobalThemeOverrides['common'], undefined>
 type ThemeVarsKeys = keyof ThemeVars
+
+const themStore = useThemeStore()
 
 watch(
   () => themStore.naiveThemeOverrides.common,
@@ -67,15 +48,6 @@ onBeforeUnmount(() => {
 
 <template>
   <n-config-provider wh-full :theme-overrides="themStore.naiveThemeOverrides" :theme="themStore.naiveTheme">
-    <n-loading-bar-provider>
-      <n-dialog-provider>
-        <n-notification-provider>
-          <n-message-provider>
-            <slot />
-            <NaiveProviderContent />
-          </n-message-provider>
-        </n-notification-provider>
-      </n-dialog-provider>
-    </n-loading-bar-provider>
+    <slot />
   </n-config-provider>
 </template>
