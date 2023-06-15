@@ -1,4 +1,5 @@
 import type { RouteType } from '~/types/router'
+
 const Layout = () => import('@/layout/index.vue')
 
 export default {

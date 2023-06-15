@@ -50,4 +50,3 @@ const themeStore = useThemeStore()
     </article>
   </n-layout>
 </template>
-

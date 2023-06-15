@@ -36,4 +36,3 @@ export function resolveResError(code: number | string | undefined, message = '')
   }
   return message
 }
-

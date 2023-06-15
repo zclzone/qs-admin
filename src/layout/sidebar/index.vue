@@ -7,4 +7,3 @@ import SideMenu from './components/SideMenu.vue'
   <SideLogo />
   <SideMenu />
 </template>
-

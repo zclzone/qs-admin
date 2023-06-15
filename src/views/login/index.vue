@@ -107,4 +107,3 @@ async function handleLogin() {
     </div>
   </AppPage>
 </template>
-
