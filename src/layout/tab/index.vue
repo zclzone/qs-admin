@@ -33,7 +33,7 @@ watch(
   { immediate: true },
 )
 
-const handleTagClick = (path: string) => {
+function handleTagClick(path: string) {
   tabStore.setActiveTab(path)
   router.push(path)
 }

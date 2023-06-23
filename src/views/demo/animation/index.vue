@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { shuffle } from 'lodash-es'
+
 interface NumItem {
   id: number
   num: number
@@ -19,4 +20,3 @@ const numList = ref<NumItem[]>(new Array(81).fill(undefined).map((item, index) =
     </transition-group>
   </CommonPage>
 </template>
-

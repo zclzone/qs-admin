@@ -21,4 +21,3 @@ const symbolId = computed(() => `#${props.prefix}-${props.icon}`)
     <use :xlink:href="symbolId" :fill="color" />
   </svg>
 </template>
-

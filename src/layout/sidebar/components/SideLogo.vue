@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useThemeStore } from '@/store'
+
 const title = import.meta.env.VITE_APP_TITLE
 
 const themeStore = useThemeStore()
