@@ -1,23 +1,36 @@
 {
   "private": true,
+  "repository": {
+    "url": "https://github.com/zclzone"
+  },
+  "license": "MIT",
   "author": {
     "name": "Ronnie Zhang",
     "email": "zclzone@outlook.com",
     "url": "https://github.com/zclzone"
   },
-  "repository": {
-    "url": "https://github.com/zclzone"
-  },
-  "license": "MIT",
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
     "build:github": "vite build --mode github",
-    "preview": "vite preview",
+    "dev": "vite",
     "lint": "eslint --ext .js,.ts,.vue .",
     "lint:fix": "eslint --fix --ext .js,.ts,.vue .",
     "lint:staged": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "preview": "vite preview"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint --ext .js,.ts,.vue ."
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "eslintConfig": {
+    "extends": "@antfu"
   },
   "dependencies": {
     "@vueuse/core": "^10.1.2",
@@ -62,18 +75,5 @@
     "vite-plugin-mock": "^2.9.6",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-tsc": "^0.38.9"
-  },
-  "eslintConfig": {
-    "extends": "@antfu"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-customizable"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts,vue}": [
-      "eslint --ext .js,.ts,.vue ."
-    ]
   }
 }
