@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.png" />
     <link rel="stylesheet" href="/loading/index.css" />
 
     <title><%= title %></title>
   </head>
-  <body dark:text-white dark:bg-hex-121212>
+  <body class="dark:text-white dark:bg-hex-121212">
     <div id="app">
       <!-- 白屏时的loading效果 -->
       <div class="loading-container">
-        <div id="loadingLogo" class="loading-svg"></div>
+        <img src="/loading/logo.png" alt="logo" height="128" />
         <div class="loading-spin__container">
           <div class="loading-spin">
             <div class="left-0 top-0 loading-spin-item"></div>
