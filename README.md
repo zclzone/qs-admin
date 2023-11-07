@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/zclzone/qs-admin">
-    <img alt="Vue Naive Admin Logo" width="200" src="https://assets.qszone.com/images/logo_qs.svg">
+    <img alt="Vue Naive Admin Logo" width="200" src="./src/assets/images/logo.png">
   </a>
 </p>
 <p align="center">
@@ -34,7 +34,7 @@
 
 ### Preview
 
-[https://admin.qszone.com](https://admin.qszone.com)
+[https://admin-ts.isme.top](https://admin-ts.isme.top)
 
 [https://zclzone.github.io/qs-admin](https://zclzone.github.io/qs-admin)
 
@@ -96,13 +96,13 @@ pnpm cz
 
 #### Preview
 
-- [https://template.qszone.com](https://template.qszone.com)
+- [https://template.isme.top](https://template.isme.top)
 - [https://zclzone.github.io/vue-naive-admin](https://zclzone.github.io/vue-naive-admin)
 
 ### Communication group & About the author
 
-<a href="https://blog.qszone.com/about/">
-  <img src="https://assets.qszone.com/images/about.png" style="max-width: 400px" />
+<a href="https://blog.isme.top/about/">
+  <img src="https://static.isme.top/images/about.png" style="max-width: 400px" />
 </a>
 
 
